@@ -9,9 +9,12 @@ public class FirstSpring {
         try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml")) {
 
-            TestBean testBean = context.getBean("testBean", TestBean.class);
+            Music music = context.getBean("ClassicalMusicBean", Music.class);
 
-            System.out.println(testBean.getName());
+            // For now without dependency injection
+            MusicPlayer musicPlayer = new MusicPlayer(music);
+
+            musicPlayer.playMusic();
         }
 
     }

@@ -12,4 +12,8 @@
         <constructor-arg value="Dmitrij"/>
     </bean>
 
+    <bean id="ClassicalMusicBean"
+          class="com.goltsov.spring.RockMusic">
+    </bean>
+
 </beans>
