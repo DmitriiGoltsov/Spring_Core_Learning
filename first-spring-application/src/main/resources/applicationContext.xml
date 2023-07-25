@@ -16,4 +16,9 @@
           class="com.goltsov.spring.RockMusic">
     </bean>
 
+    <bean id="musicPlayer"
+          class="com.goltsov.spring.MusicPlayer">
+        <constructor-arg ref="ClassicalMusicBean"/>
+    </bean>
+
 </beans>
