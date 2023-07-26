@@ -1,15 +1,47 @@
 package com.goltsov.spring;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MusicPlayer {
 
-    private Music music;
+    private List<Music> musicList = new ArrayList<>();
 
-    public MusicPlayer (Music music) {
-        this.music = music;
+    private String name;
+
+    private int volume;
+
+    public MusicPlayer() {
+    }
+
+    public MusicPlayer(List<Music> musicList) {
+        this.musicList = musicList;
+    }
+
+    public void setMusicList(List<Music> musicList) {
+        this.musicList = musicList;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getVolume() {
+        return volume;
+    }
+
+    public void setVolume(int volume) {
+        this.volume = volume;
     }
 
     public void playMusic() {
-        System.out.println("Playing: " + music.getSong());
+        for (var music : musicList) {
+            System.out.println(music.getSong());
+        }
     }
 
 }
