@@ -10,7 +10,10 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="testBean"
-          class="com.goltsov.spring.TestBean">
+          class="com.goltsov.spring.TestBean"
+          init-method="doMyTestInit"
+          destroy-method="doMyTestDestroy"
+          scope="prototype">
         <constructor-arg value="Dmitrij"/>
     </bean>
 
@@ -19,7 +22,11 @@
     </bean>
 
     <bean id="ClassicalMusicBean"
-          class="com.goltsov.spring.kindsofmusic.ClassicalMusic">
+          class="com.goltsov.spring.kindsofmusic.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="produceClassicalMusic">
+
     </bean>
 
     <bean id="PopMusicBean"
@@ -47,13 +54,13 @@
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
 
-        <property name="musicList">
+       <!-- <property name="musicList">
             <list>
                 <ref bean="ClassicalMusicBean"/>
                 <ref bean="RockMusicBean"/>
                 <ref bean="PopMusicBean"/>
             </list>
-        </property>
+        </property>-->
 
     </bean>
 

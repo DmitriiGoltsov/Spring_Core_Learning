@@ -15,4 +15,12 @@ public class TestBean {
     public String getName() {
         return name;
     }
+
+    private static void doMyTestInit() {
+        System.out.println("Initializing myself!");
+    }
+
+    private static void doMyTestDestroy() {
+        System.out.println("Destroying myself!");
+    }
 }

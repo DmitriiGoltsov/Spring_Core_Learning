@@ -20,7 +20,7 @@ public class FirstSpring {
             musicPlayer.playMusic();
             System.out.println(musicPlayer.getVolume() + " " + musicPlayer.getName());*/
 
-            MusicPlayer musicPlayer1 = context.getBean("musicPlayer", MusicPlayer.class);
+            /*MusicPlayer musicPlayer1 = context.getBean("musicPlayer", MusicPlayer.class);
             MusicPlayer musicPlayer2 = context.getBean("musicPlayer", MusicPlayer.class);
 
             boolean comparison = musicPlayer1 == musicPlayer2;
@@ -33,7 +33,13 @@ public class FirstSpring {
             musicPlayer1.setVolume(10);
 
             System.out.println(musicPlayer1.getVolume());
-            System.out.println(musicPlayer2.getVolume());
+            System.out.println(musicPlayer2.getVolume());*/
+//
+//            TestBean testBean = context.getBean("testBean", TestBean.class);
+//            TestBean testBean2 = context.getBean("testBean", TestBean.class);
+
+            Music classicalMusic = context.getBean("ClassicalMusicBean", Music.class);
+            System.out.println(classicalMusic.getSong());
 
         }
 
