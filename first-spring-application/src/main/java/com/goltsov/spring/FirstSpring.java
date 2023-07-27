@@ -9,39 +9,18 @@ public class FirstSpring {
         try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml")) {
 
-            /*Music music = context.getBean("ClassicalMusicBean", Music.class);
+            Music rockSong = context.getBean("someRockMusic", Music.class);
+            Music popSong = context.getBean("pop", Music.class);
+            var classicalMusic = context.getBean("classicalMusic", Music.class);
 
-            // For now without dependency injection
-            MusicPlayer musicPlayer = new MusicPlayer(music);
-
-            musicPlayer.playMusic();*/
-
-            /*MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+            MusicPlayer musicPlayer = new MusicPlayer(rockSong);
             musicPlayer.playMusic();
-            System.out.println(musicPlayer.getVolume() + " " + musicPlayer.getName());*/
+            System.out.println("\n");
 
-            /*MusicPlayer musicPlayer1 = context.getBean("musicPlayer", MusicPlayer.class);
-            MusicPlayer musicPlayer2 = context.getBean("musicPlayer", MusicPlayer.class);
-
-            boolean comparison = musicPlayer1 == musicPlayer2;
-
-            System.out.println(comparison + "\n");
-
-            System.out.println(musicPlayer1);
-            System.out.println(musicPlayer2);
-
-            musicPlayer1.setVolume(10);
-
-            System.out.println(musicPlayer1.getVolume());
-            System.out.println(musicPlayer2.getVolume());*/
-//
-//            TestBean testBean = context.getBean("testBean", TestBean.class);
-//            TestBean testBean2 = context.getBean("testBean", TestBean.class);
-
-            Music classicalMusic = context.getBean("ClassicalMusicBean", Music.class);
+            System.out.println(rockSong.getSong());
+            System.out.println(popSong.getSong());
             System.out.println(classicalMusic.getSong());
 
         }
-
     }
 }

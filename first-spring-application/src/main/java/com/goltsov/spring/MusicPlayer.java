@@ -18,6 +18,10 @@ public class MusicPlayer {
         this.musicList = musicList;
     }
 
+    public MusicPlayer(Music song) {
+        musicList.add(song);
+    }
+
     public void setMusicList(List<Music> musicList) {
         this.musicList = musicList;
     }
