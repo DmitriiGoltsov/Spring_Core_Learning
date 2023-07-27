@@ -1,6 +1,8 @@
 package com.goltsov.spring;
 
+import com.goltsov.spring.kindsofmusic.ClassicalMusic;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 public class FirstSpring {
 
@@ -9,18 +11,14 @@ public class FirstSpring {
         try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml")) {
 
-            Music rockSong = context.getBean("someRockMusic", Music.class);
-            Music popSong = context.getBean("pop", Music.class);
-            var classicalMusic = context.getBean("classicalMusic", Music.class);
+            /*var player = context.getBean("player", MusicPlayer.class);
 
-            MusicPlayer musicPlayer = new MusicPlayer(rockSong);
-            musicPlayer.playMusic();
-            System.out.println("\n");
+            player.playMusic();
+*/
 
-            System.out.println(rockSong.getSong());
-            System.out.println(popSong.getSong());
-            System.out.println(classicalMusic.getSong());
+            Computer computer = context.getBean("computer", Computer.class);
 
+            System.out.println(computer);
         }
     }
 }

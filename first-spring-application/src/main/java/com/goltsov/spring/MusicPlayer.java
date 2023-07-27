@@ -1,51 +1,26 @@
 package com.goltsov.spring;
 
+import com.goltsov.spring.kindsofmusic.ClassicalMusic;
+import com.goltsov.spring.kindsofmusic.RockMusic;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component("player")
 public class MusicPlayer {
 
-    private List<Music> musicList = new ArrayList<>();
+    private ClassicalMusic classicalMusic;
+    private RockMusic rockMusic;
 
-    private String name;
-
-    private int volume;
-
-    public MusicPlayer() {
+    @Autowired
+    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rockMusic = rockMusic;
     }
 
-    public MusicPlayer(List<Music> musicList) {
-        this.musicList = musicList;
+    public String playMusic() {
+        return "Playing: " + classicalMusic.getSong() + "\n" + "Playing: " + rockMusic.getSong();
     }
-
-    public MusicPlayer(Music song) {
-        musicList.add(song);
-    }
-
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
-    public void playMusic() {
-        for (var music : musicList) {
-            System.out.println(music.getSong());
-        }
-    }
-
 }

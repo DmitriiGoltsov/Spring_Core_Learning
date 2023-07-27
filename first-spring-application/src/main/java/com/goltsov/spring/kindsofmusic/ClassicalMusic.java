@@ -3,7 +3,7 @@ package com.goltsov.spring.kindsofmusic;
 import com.goltsov.spring.Music;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("classical")
 public class ClassicalMusic implements Music {
 
     private ClassicalMusic() {
@@ -15,7 +15,7 @@ public class ClassicalMusic implements Music {
 
     @Override
     public String getSong() {
-        return "In the cave of mountain king";
+        return "In the Hall of the Mountain King";
     }
 
     private void doMyInit() {
