@@ -1,30 +1,17 @@
 package com.goltsov.spring;
 
-import com.goltsov.spring.kindsofmusic.ClassicalMusic;
-import com.goltsov.spring.kindsofmusic.MusicKinds;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class FirstSpring {
 
     public static void main(String[] args) {
 
-        try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-                "applicationContext.xml")) {
+        try (AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(SpringConfig.class)) {
 
-            var player = context.getBean("player", MusicPlayer.class);
+            Computer computer = context.getBean("computer", Computer.class);
 
-            /*System.out.println(player.playMusic(MusicKinds.CLASSICAL));
-            System.out.println(player.playMusic(MusicKinds.ROCK));*/
-
-            /*Computer computer = context.getBean("computer", Computer.class);
-
-            System.out.println(computer);*/
-
-            System.out.println(player.getName());
-            System.out.println(player.getVolume());
-
-            ClassicalMusic classicalMusic1 = context.getBean("classical", ClassicalMusic.class);
+            System.out.println(computer.getMusicPlayer().playMusic());;
 
         }
     }
