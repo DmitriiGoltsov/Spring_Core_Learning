@@ -14,12 +14,18 @@ public class FirstSpring {
 
             var player = context.getBean("player", MusicPlayer.class);
 
-            System.out.println(player.playMusic(MusicKinds.CLASSICAL));
-            System.out.println(player.playMusic(MusicKinds.ROCK));
+            /*System.out.println(player.playMusic(MusicKinds.CLASSICAL));
+            System.out.println(player.playMusic(MusicKinds.ROCK));*/
 
             /*Computer computer = context.getBean("computer", Computer.class);
 
             System.out.println(computer);*/
+
+            System.out.println(player.getName());
+            System.out.println(player.getVolume());
+
+            ClassicalMusic classicalMusic1 = context.getBean("classical", ClassicalMusic.class);
+
         }
     }
 }

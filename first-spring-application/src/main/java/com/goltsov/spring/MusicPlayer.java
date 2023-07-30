@@ -2,11 +2,16 @@ package com.goltsov.spring;
 
 import com.goltsov.spring.kindsofmusic.MusicKinds;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component("player")
 public class MusicPlayer {
 
+    @Value("${musicPlayer.name}")
+    private String name;
+    @Value("${musicPlayer.volume}")
+    private int volume;
     private Music rockMusic;
     private Music classicalMusic;
 
@@ -15,6 +20,13 @@ public class MusicPlayer {
         this.classicalMusic = classicalMusic;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getVolume() {
+        return volume;
+    }
 
     public String playMusic(MusicKinds musicKinds) {
         switch (musicKinds) {
